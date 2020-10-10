@@ -227,7 +227,7 @@ section.your-active-class .landing__container::after {
 	}
 }
 
-li a {
+a {
 	cursor: pointer;
 }
 /* Active Section */

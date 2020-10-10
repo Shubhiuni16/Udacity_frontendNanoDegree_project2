@@ -9,7 +9,7 @@
   JavaScript
   
 
-#### Live url - 
+#### Live url - https://shubhiuni16.github.io/Udacity_frontendNanoDegree_project2/
 
 Run index.html file to view the project. 
 

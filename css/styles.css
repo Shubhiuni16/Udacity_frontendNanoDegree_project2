@@ -227,6 +227,9 @@ section.your-active-class .landing__container::after {
 	}
 }
 
+li a {
+	cursor: pointer;
+}
 /* Active Section */
 .active {
 	background-color: #02b3e4;

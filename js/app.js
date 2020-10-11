@@ -31,7 +31,7 @@ let current_Pos=0;
 
 // Scroll to anchor ID using scrollTO event
 function sec_scroll(sectionID){
-    window.scrollTo(0,sectionID);
+    window.scrollTo({ top: sectionID, behavior: 'smooth' });
 }
 
 
@@ -44,16 +44,13 @@ function sec_scroll(sectionID){
 
 // build the nav
 sec_Nav.forEach((element,index)=>{
-    let Off_Sec=element.offsetTop+50;
+    let Off_Sec=element.offsetTop+30;
     let list=document.createElement("li");
     let sec=element.getAttribute("data-nav");
     list.setAttribute("class","menu__link"+index);
     list.innerHTML=`<a onclick="sec_scroll(${Off_Sec})">${sec}</a>`;
     nav_Tag.appendChild(list);
 });
-
-
-// Add class 'active' to section when near top of viewport
 
 
 /**
@@ -72,14 +69,15 @@ sec_Nav.forEach((element,index)=>{
 document.addEventListener("scroll",()=>{
     sec_Nav_Pos=[];
     current_Pos=this.scrollY;
-    sec_Nav.forEach((element)=>sec_Nav_Pos.push(element.getBoundingClientRect().top+150));
+    sec_Nav.forEach((element)=>sec_Nav_Pos.push(element.getBoundingClientRect().top+250));
     let Index_add=sec_Nav_Pos.findIndex((element)=>element>0);
 	for (let i = 0; i < sec_Nav_Len; i++) {
 		if (Index_add === i) {
 			document.querySelector(".menu__link" + Index_add).classList.add("active");
 			document.querySelector(`#section${Index_add + 1}`).classList.add("your-active-class");
-		} else {
-			document.querySelector(".menu__link" + i).classList.remove("active");
+        }
+        else {
+			document.querySelector(`.menu__link${i}`).classList.remove("active");
 			document.querySelector(`#section${i + 1}`).removeAttribute("class");
 		}
 	}
